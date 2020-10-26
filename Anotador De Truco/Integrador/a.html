@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Anotador de truco</title>
+  </head>
+<body class="body">
+  <div class="equiposInicio visible">
+    <input class="equipo1" type="text"  id="e1" value="Equipo 1"/>
+    </br>
+    <input class="equipo2" type="text"  id="e2" value="Equipo 2" />
+    </br>
+    <div>
+    <input class="final24" type="button" value="24" />
+    <input class="final30" type="button"  value="30" />
+    </div></br>
+    <input class="iniciar" type="button"  value="Iniciar">
+  </div>
+  <div class="Juego">
+  <div class="BTNJuego hidden">
+    <input type="button" class="suma" value="+" id="suma" />
+    <input type="text" class="equipo1LBL" readonly="readonly" value="" name="s1" />
+    <input type="text" class="equipo2LBL" readonly="readonly" value="" name="s1" />
+    <input type="button" class="suma2" value="+" id="suma" /> 
+    </br>
+    </br>
+    <div class="malasE1">
+     <img class="pack" id="E1pack1" src="0.png" alt="" />
+   </br>
+     <img class="pack" id="E1pack2" src="0.png" alt=""/>
+   </br>
+     <img class="pack" id="E1pack3" src="0.png" alt=""/>
+    </div>
+    <div class="malasE2">
+     <img class="pack" id="E2pack1" src="0.png" alt="" />
+     </br>
+     <img class="pack" id="E2pack2" src="0.png" alt=""/>
+     </br>
+     <img class="pack" id="E2pack3" src="0.png" alt=""/>
+    </div>
+    <br>
+    <div class="buenasE1">
+     <img class="pack" id="E1pack4" src="0.png" alt="" />
+     </br>
+     <img class="pack" id="E1pack5" src="0.png" alt=""/>
+     </br>
+     <img class="pack" id="E1pack6" src="0.png" alt=""/>
+   </div>
+   <div class="buenasE2">
+     <img class="pack" id="E2pack4" src="0.png" alt="" />
+     </br>
+     <img class="pack" id="E2pack5" src="0.png" alt=""/>
+     </br>
+     <img class="pack" id="E2pack6" src="0.png" alt=""/>
+
+    </div>
+  </div></br>
+  <div class="BTNJuego2 hidden">
+     <input type="text" class="reglaTXT" readonly="readonly" value=""/>
+     <br>
+    <input type="button" class="resta" value="-" id="resta" />
+    <input type="text"  readonly="readonly" value="0" id="puntaje1LBL" />
+    <input type="button" class="btfinal" value="Fin">
+    <input type="text"  readonly="readonly" value="0" id="puntaje2LBL" />
+    <input type="button" class="resta2" value="-" id="resta" /> </br>
+  </div>
+</div>
+</body>
+
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"
+    ></script>
+
+<script>
+$(document).ready(function() {
+     btnIniciar = $(".iniciar");
+     
+     //REGLAS
+     var equipo1;
+     var equipo2;
+     var final = 30;
+
+     //PUNTAJE
+     var puntosE1 = 0;
+     var fosforosE1 = 0;
+     var fosforosE2 = 0;
+     var puntosE2 = 0;
+
+      btnIniciar.on("click", function(){
+      equipo1 = $(".equipo1").val();
+      equipo2 = $(".equipo2").val();
+      $(".equipo1LBL").val(equipo1);
+      $(".equipo2LBL").val(equipo2); 
+      $(".equiposInicio").removeClass("visible");
+      $(".equiposInicio").addClass("hidden");
+      $(".BTNJuego").removeClass("hidden");
+      $(".BTNJuego").addClass("visible");
+      $(".BTNJuego2").removeClass("hidden");
+      $(".BTNJuego2").addClass("visible");
+      $(".reglaTXT").val("a " + final);
+     });
+      
+
+      $(".final24").on("click", function(){
+      final = 24;
+    });
+
+
+      $(".final30").on("click", function(){
+      final = 30;
+     });
+
+      $(".suma").on("click", function(){
+        if(fosforosE1 == 5)
+          fosforosE1 = 0;
+        puntosE1 += 1;
+        fosforosE1 += 1;
+         $("#puntaje1LBL").val(puntosE1);
+        switch(final)
+        {
+          case 30:
+         if(puntosE1 < 6)
+         {
+          $("#E1pack1").attr("src",puntosE1 + ".png");
+         }
+         if(puntosE1 < 11 && puntosE1 > 5)
+         {
+          $("#E1pack2").attr("src",fosforosE1 + ".png");
+         }
+         if(puntosE1 < 16 && puntosE1 > 10)
+         {
+          $("#E1pack3").attr("src",fosforosE1 + ".png");
+         }
+         if(puntosE1 < 21 && puntosE1 > 15)
+         {
+          $("#E1pack4").attr("src",fosforosE1 + ".png");
+         }
+          if(puntosE1 < 26 && puntosE1 > 20)
+         {
+          $("#E1pack5").attr("src",fosforosE1 + ".png");
+         }
+          if(puntosE1 < 31 && puntosE1 > 25)
+         {
+          $("#E1pack6").attr("src",fosforosE1 + ".png");
+         }
+         break;
+
+         case 24:
+         if(puntosE1 < 6)
+         {
+          $("#E1pack1").attr("src",puntosE1 + ".png");
+         }
+         if(puntosE1 < 11 && puntosE1 > 5)
+         {
+          $("#E1pack2").attr("src",fosforosE1 + ".png");
+         }
+         if(puntosE1 < 13 && puntosE1 > 10)
+         {
+          $("#E1pack3").attr("src",fosforosE1 + ".png");
+         }
+         if(puntosE1 == 12)
+           fosforosE1 = 0;
+          if(puntosE1 < 18 && puntosE1 > 12)
+         {
+          $("#E1pack4").attr("src",fosforosE1 + ".png");
+         }
+          if(puntosE1 < 23 && puntosE1 > 17)
+         {
+          $("#E1pack5").attr("src",fosforosE1 + ".png");
+         }
+          if(puntosE1 < 25 && puntosE1 > 22)
+         {
+          $("#E1pack6").attr("src",fosforosE1 + ".png");
+         }
+         break;
+       }
+         checkWin(puntosE1);
+                 console.log("fosf1: " + fosforosE1);
+      console.log("los puntos del e1 son: " + puntosE1);
+      console.log("los puntos del e2 son: " + puntosE2);
+      console.log("los fosforos del e1 son: " + fosforosE1);
+     });
+
+
+      $(".suma2").on("click", function(){
+        if(fosforosE2 == 5)
+        fosforosE2 = 0;
+        puntosE2 += 1;
+        fosforosE2 += 1;
+         $("#puntaje2LBL").val(puntosE2);
+         switch(final)
+         {
+          case 30:
+         if(puntosE2 < 6)
+         {
+          $("#E2pack1").attr("src",puntosE2 + ".png");
+         }
+         if(puntosE2 < 11 && puntosE2 > 5)
+         {
+          $("#E2pack2").attr("src",fosforosE2 + ".png");
+         }
+         if(puntosE2 < 16 && puntosE2 > 10)
+         {
+          $("#E2pack3").attr("src",fosforosE2 + ".png");
+         }
+          if(puntosE2 < 21 && puntosE2 > 15)
+         {
+          $("#E2pack4").attr("src",fosforosE2 + ".png");
+         }
+          if(puntosE2 < 26 && puntosE2 > 20)
+         {
+          $("#E2pack5").attr("src",fosforosE2 + ".png");
+         }
+          if(puntosE2 < 31 && puntosE2 > 25)
+         {
+          $("#E2pack6").attr("src",fosforosE2 + ".png");
+         }
+         break;
+
+         case 24:
+         if(puntosE2 < 6)
+         {
+          $("#E2pack1").attr("src",puntosE2 + ".png");
+         }
+         if(puntosE2 < 11 && puntosE2 > 5)
+         {
+          $("#E2pack2").attr("src",fosforosE2 + ".png");
+         }
+         if(puntosE2 < 13 && puntosE2 > 10)
+         {
+          $("#E2pack3").attr("src",fosforosE2 + ".png");
+         }
+         if(puntosE2 == 12)
+           fosforosE2 = 0;
+          if(puntosE2 < 18 && puntosE2 > 12)
+         {
+          $("#E2pack4").attr("src",fosforosE2 + ".png");
+         }
+          if(puntosE2 < 23 && puntosE2 > 17)
+         {
+          $("#E2pack5").attr("src",fosforosE2 + ".png");
+         }
+          if(puntosE2 < 25 && puntosE2 > 22)
+         {
+          $("#E2pack6").attr("src",fosforosE2 + ".png");
+         }
+         break;
+       }
+         checkWin(puntosE2);
+      console.log("los puntos del e1 son: " + puntosE1);
+      console.log("los puntos del e2 son: " + puntosE2);
+     });
+
+      $(".resta").on("click", function(){
+        if(fosforosE1 == 0 && final != 24)
+          fosforosE1 = 5;
+
+         if(final == 24 && puntosE1 == 12)
+         {
+          fosforosE1 = 2;
+          }
+          else if(fosforosE1 == 0 && final == 24)
+          fosforosE1 = 5; 
+
+        if(puntosE1 > 0)
+        {
+          puntosE1 -= 1;
+          fosforosE1 -= 1;
+        }
+        console.log("fosf1: " + fosforosE1);
+         $("#puntaje1LBL").val(puntosE1);
+        switch(final)
+        {
+         case 30:
+         if(puntosE1 < 5)
+         {
+          $("#E1pack1").attr("src",puntosE1 + ".png");
+         }
+         if(puntosE1 < 10 && puntosE1 > 4)
+         {
+          $("#E1pack2").attr("src",fosforosE1 + ".png");
+         }
+         if(puntosE1 < 15 && puntosE1 > 9)
+         {
+          $("#E1pack3").attr("src",fosforosE1 + ".png");
+         }    
+         if(puntosE1 < 20 && puntosE1 > 14)
+         {
+          $("#E1pack4").attr("src",fosforosE1 + ".png");
+         }
+          if(puntosE1 < 25 && puntosE1 > 19)
+         {
+          $("#E1pack5").attr("src",fosforosE1 + ".png");
+         }
+          if(puntosE1 < 31 && puntosE1 > 24)
+         {
+          $("#E1pack6").attr("src",fosforosE1 + ".png");
+         }  
+         break;
+
+         case 24:
+         if(puntosE1 < 5)
+         {
+          $("#E1pack1").attr("src",puntosE1 + ".png");
+         }
+         if(puntosE1 < 10 && puntosE1 > 4)
+         {
+          $("#E1pack2").attr("src",fosforosE1 + ".png");
+         }
+         if(puntosE1 < 12 && puntosE1 > 9)
+         {
+          $("#E1pack3").attr("src",fosforosE1 + ".png");
+         }  
+         if(puntosE1 < 17 && puntosE1 > 11)
+         {
+          $("#E1pack4").attr("src",fosforosE1 + ".png");
+         }
+          if(puntosE1 < 22 && puntosE1 > 16)
+         {
+          $("#E1pack5").attr("src",fosforosE1 + ".png");
+         }
+          if(puntosE1 < 25 && puntosE1 > 21)
+         {
+          $("#E1pack6").attr("src",fosforosE1 + ".png");
+         }  
+         break;
+        }    
+      console.log("los puntos del e1 son: " + puntosE1);
+      console.log("los puntos del e2 son: " + puntosE2);
+     });
+
+
+      $(".resta2").on("click", function(){
+          if(fosforosE2 == 0 && final != 24)
+          fosforosE2 = 5;
+
+         if(final == 24 && puntosE2 == 12)
+         {
+          fosforosE2 = 2;
+          }
+          else if(fosforosE2 == 0 && final == 24)
+          fosforosE2 = 5; 
+
+        if(puntosE2 > 0)
+        {
+          puntosE2 -= 1;
+          fosforosE2 -= 1;
+        }
+         
+         $("#puntaje2LBL").val(puntosE2);
+         switch(final)
+         {
+          case 30:
+         if(puntosE2 < 5)
+         {
+          $("#E2pack1").attr("src",puntosE2 + ".png");
+         }
+         if(puntosE2 < 10 && puntosE2 > 4)
+         {
+          $("#E2pack2").attr("src",fosforosE2 + ".png");
+         }
+         if(puntosE2 < 15 && puntosE2 > 9)
+         {
+          $("#E2pack3").attr("src",fosforosE2 + ".png");
+         }
+         if(puntosE2 < 20 && puntosE2 > 14)
+         {
+          $("#E2pack4").attr("src",fosforosE2 + ".png");
+         }
+          if(puntosE2 < 25 && puntosE2 > 19)
+         {
+          $("#E2pack5").attr("src",fosforosE2 + ".png");
+         }
+          if(puntosE2 < 31 && puntosE2 > 24)
+         {
+          $("#E2pack6").attr("src",fosforosE2 + ".png");
+         }         
+
+         break;
+
+
+         case 24:
+         if(puntosE2 < 5)
+         {
+          $("#E2pack1").attr("src",puntosE2 + ".png");
+         }
+         if(puntosE2 < 10 && puntosE2 > 4)
+         {
+          $("#E2pack2").attr("src",fosforosE2 + ".png");
+         }
+         if(puntosE2 < 12 && puntosE2 > 9)
+         {
+          $("#E2pack3").attr("src",fosforosE2 + ".png");
+         }  
+         if(puntosE2 < 17 && puntosE2 > 11)
+         {
+          $("#E2pack4").attr("src",fosforosE2 + ".png");
+         }
+          if(puntosE2 < 22 && puntosE2 > 16)
+         {
+          $("#E2pack5").attr("src",fosforosE2 + ".png");
+         }
+          if(puntosE2 < 25 && puntosE2 > 21)
+         {
+          $("#E2pack6").attr("src",fosforosE2 + ".png");
+         }  
+         break;
+        }  
+      console.log("los puntos del e1 son: " + puntosE1);
+      console.log("los puntos del e2 son: " + puntosE2);
+      console.log("los fosforos del e2 son: " + fosforosE2);
+     });
+
+
+        $(".btfinal").on("click", function(){
+          reinciarJuego();
+     });
+
+
+      function checkWin(puntos)
+      {
+          if(puntos >= final)
+          {
+            if(puntosE1 >= final)
+              $(".reglaTXT").val(equipo1 + " es el vencedor");
+            else if(puntosE2 >= final)
+              $(".reglaTXT").val(equipo2 + " es el vencedor");
+            $(".suma").addClass("hidden");
+            $(".resta").addClass("hidden");
+            $(".suma2").addClass("hidden");
+            $(".resta2").addClass("hidden");
+
+          }
+      }
+
+      function reinciarJuego()
+      {
+        $(".suma").removeClass("hidden");
+        $(".resta").removeClass("hidden");
+        $(".suma").addClass("visible");
+        $(".resta").addClass("visible");
+        $(".suma2").removeClass("hidden");
+        $(".resta2").removeClass("hidden");
+        $(".suma2").addClass("visible");
+        $(".resta2").addClass("visible");
+        $(".equipo1").val("Equipo 1");
+        $(".equipo2").val("Equipo 2");
+        $("#puntaje1LBL").val("0");
+        $("#puntaje2LBL").val("0");
+        $("#E1pack1").attr("src","0.png");
+        $("#E1pack2").attr("src","0.png");
+        $("#E1pack3").attr("src","0.png");
+        $("#E2pack1").attr("src","0.png");
+        $("#E2pack2").attr("src","0.png");
+        $("#E2pack3").attr("src","0.png"); 
+        $("#E1pack4").attr("src","0.png");
+        $("#E1pack5").attr("src","0.png");
+        $("#E1pack6").attr("src","0.png");
+        $("#E2pack4").attr("src","0.png");
+        $("#E2pack5").attr("src","0.png");
+        $("#E2pack6").attr("src","0.png");                                        
+        final = 30;
+        puntosE1 = 0;
+        fosforosE1= 0;
+        puntosE2 = 0;
+        fosforosE2= 0;
+
+      $(".equiposInicio").removeClass("hidden");
+      $(".equiposInicio").addClass("visible");
+      $(".BTNJuego").removeClass("visible");
+      $(".BTNJuego").addClass("hidden");
+      $(".BTNJuego2").removeClass("visible");
+      $(".BTNJuego2").addClass("hidden");
+      }
+});
+</script>
+</html>
