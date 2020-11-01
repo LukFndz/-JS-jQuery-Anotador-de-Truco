@@ -1,0 +1,229 @@
+
+.visible {
+	visibility: visible;
+	display:inline-block;
+	height: 700px;
+}
+.hidden {
+	visibility: hidden;
+	display:none;
+	height: 0px;
+	width: 0px;
+}
+
+.body{
+	background-color: green;
+}
+
+.equipo1{
+	background-color: transparent;
+	color:white;
+	text-align: center;
+	border:1px solid white;
+	width: 500px;
+	height: 60px;
+	font-size: 45px;
+	margin-left:550px;
+}
+
+.equipo2{
+	background-color: transparent;
+	color:white;
+	text-align: center;
+	border:1px solid white;
+	width: 500px;
+	height: 60px;
+	font-size: 45px;
+	margin-left:550px;
+}
+.equiposInicio{
+	font-family: Arial;
+	font-weight: bold;
+	width: 1000px;
+	display:flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.final24{
+	background-color: transparent;
+	width: 150px;
+	display:inline-block;
+	color:white;
+	margin-left:625px;
+	font-size: 30px;
+	margin-right:50px;  
+	height: 50px;
+	border:1px solid white;
+}
+
+.final30{
+	background-color: transparent; 
+	width: 150px;
+	display:inline-block;
+	color:white;
+	font-size: 30px; 
+	height: 50px;
+	border:1px solid white;
+}
+
+.iniciar{
+	background-color: transparent;
+	color:white;
+	text-align: center;
+	border:1px solid white;
+	width: 500px;
+	height: 50px;
+	margin-left:550px;
+	font-size: 40px;
+}
+
+
+
+.BTNJuego{
+	font-family: Arial;
+	font-weight: bold;
+	height: 700px;
+}
+
+.BTNJuego2{
+	font-family: Arial;
+	font-weight: bold;
+	height: 500px;
+	margin-top: 100px;
+
+}
+
+.equipo1LBL{
+	background-color: transparent;
+	display: inline-block;
+	color:white;
+	text-align: center;
+	border:none;
+	font-size: 25px;
+}
+
+
+.equipo2LBL{
+	background-color: transparent;
+	display: inline-block;
+	color:white;
+	text-align: center;
+	border:none;
+	margin-left: 95px;
+	font-size: 25px;
+}
+
+#suma{
+	background-color: transparent;
+	display: inline-block;
+	width: 80px;
+	color:white;
+	font-size: 30px;
+	height: 50px;
+	border:1px solid white;
+}
+
+#resta{
+	background-color: transparent;
+	display: inline-block;
+	width: 80px;
+	color:white;
+	font-size: 30px;
+	height: 50px;
+	border:1px solid white;
+}
+
+.btfinal{
+	background-color: transparent;
+	display: inline-block;
+	width: 150px;
+	color:white;
+	font-size: 30px;  
+	height: 50px;
+	border:1px solid white;
+	margin-left: 100px;
+}
+
+
+#puntaje1LBL{
+	background-color: transparent;
+	color:white;
+	text-align: center;
+	border:none;
+	width: 50px;
+	height: 60px;
+	margin-left: 0px;
+	font-size: 45px;
+	margin-left: 100px;
+}
+
+#puntaje2LBL{
+	background-color: transparent;
+	color:white;
+	text-align: center;
+	border:none;
+	width: 50px;
+	height: 60px;
+	font-size: 45px;
+	margin-left: 100px;
+}
+
+.resta2{
+	margin-left: 100px;
+}
+
+.malasE1{
+	border-top:1px solid white;
+	display: inline-block;
+	width: 420px;
+	margin: 0;
+	height: 350px;
+}
+
+.malasE2{
+	border-top:1px solid white;
+	border-left:1px solid white;
+	display: inline-block;
+	width: 410px;
+	margin: 0;
+	height: 350px;
+}
+
+.pack{
+	display: block;
+	margin:auto;
+	padding-top: 20px;
+	width: 80px;
+	height: 80px;
+}
+
+.buenasE1{
+	border-top:1px solid white;
+	display: inline-block;
+	width: 420px;
+	margin: 0;
+	height: 350px;
+}
+
+.buenasE2{
+	border-top:1px solid white;
+	border-left:1px solid white;
+	display: inline-block;
+	width: 410px;
+	margin: 0;
+	height: 350px;
+}
+
+.Juego{
+	text-align: center;
+}
+
+.reglaTXT{
+	background-color: transparent;
+	display: inline-block;
+	color:white;
+	text-align: center;
+	border:none;
+	font-size: 25px;
+}
